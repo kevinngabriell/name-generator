@@ -1,0 +1,52 @@
+diff --git a/node_modules/full-name-generator/src/index.ts b/node_modules/full-name-generator/src/index.ts
+index 384b691..738c53f 100644
+--- a/node_modules/full-name-generator/src/index.ts
++++ b/node_modules/full-name-generator/src/index.ts
+@@ -1,6 +1,8 @@
+ import { names } from './names';
+ import { surnames } from './surnames';
+ 
++type Gender = 0 | 1;
++
+ const getRandomItem = (array: string[]): string => {
+   return array[Math.floor(Math.random() * array.length)];
+ };
+@@ -38,7 +40,7 @@ const firstName = (isoCode: string, gender: Gender, n: number = 1): string => {
+   return generateMultiple(getRandomName, isoCode, gender, n);
+ };
+ 
+-const lastName = (isoCode: string, gender?: Gender, n: number = 1): string => {
++const lastName = (isoCode: string, gender: Gender = 0, n: number = 1): string => {
+   return generateMultiple(getRandomSurname, isoCode, gender, n);
+ };
+ 
+diff --git a/node_modules/full-name-generator/src/names.ts b/node_modules/full-name-generator/src/names.ts
+index 3432a1f..f781a8c 100644
+--- a/node_modules/full-name-generator/src/names.ts
++++ b/node_modules/full-name-generator/src/names.ts
+@@ -31,6 +31,10 @@ import tw from './names/tw';
+ import us from './names/us';
+ import vn from './names/vn';
+ 
++type Names = {
++  [key: string]: any; // kalau mau paling cepat
++};
++
+ export const names: Names = {
+     ar, at, be, br, cn, cz, de, dk, es, fi,
+     fr, gb, gr, id, il, in: _in, it, jp, kr, mx,
+diff --git a/node_modules/full-name-generator/src/surnames.ts b/node_modules/full-name-generator/src/surnames.ts
+index c39cf66..bfc15a0 100644
+--- a/node_modules/full-name-generator/src/surnames.ts
++++ b/node_modules/full-name-generator/src/surnames.ts
+@@ -31,6 +31,10 @@ import tw from './surnames/tw';
+ import us from './surnames/us';
+ import vn from './surnames/vn';
+ 
++type Surnames = {
++  [key: string]: any; // kalau mau paling cepat
++};
++
+ export const surnames: Surnames = {
+     ar, at, be, br, cn, cz, de, dk, es, fi,
+     fr, gb, gr, id, il, in: _in, it, jp, kr, mx,
