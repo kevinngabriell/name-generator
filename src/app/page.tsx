@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { Button, Flex, Text, Input, useClipboard } from "@chakra-ui/react";
+import { Button, Flex, Text, Input } from "@chakra-ui/react";
 import { fullName } from "full-name-generator";
 
 export default function Home() {
